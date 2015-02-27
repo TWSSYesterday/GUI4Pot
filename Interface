@@ -1,0 +1,331 @@
+package com.codebeasts.GUI4Pot;
+
+import net.md_5.bungee.api.ChatColor;
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
+import org.bukkit.Server;
+import org.bukkit.entity.HumanEntity;
+import org.bukkit.entity.Player;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.Listener;
+import org.bukkit.event.inventory.InventoryClickEvent;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.PluginManager;
+import org.bukkit.potion.PotionEffect;
+import org.bukkit.potion.PotionEffectType;
+
+public class Interface implements Listener {
+  private Inventory inv;
+  
+  public Interface (Plugin p) {
+    this.inv = Bukkit.getServer().createInventory(null, 45, "Potions");
+    
+    ItemStack Regeneration = new ItemStack(Material.NETHER_STAR);
+    ItemMeta RegenerationMeta = Regeneration.getItemMeta();
+    RegenerationMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Regeneration");
+    Regeneration.setItemMeta(RegenerationMeta);
+    
+    ItemStack Swiftness = new ItemStack(Material.NETHER_STAR);
+    ItemMeta SwiftnessMeta = Swiftness.getItemMeta();
+    SwiftnessMeta.setDisplayName(ChatColor.BLUE + "Swiftness");
+    Swiftness.setItemMeta(SwiftnessMeta);
+    
+    ItemStack FireResistance = new ItemStack(Material.NETHER_STAR);
+    ItemMeta FireResistanceMeta = FireResistance.getItemMeta();
+    FireResistanceMeta.setDisplayName(ChatColor.RED + "Fire Resistance");
+    FireResistance.setItemMeta(FireResistanceMeta);
+    
+    ItemStack Poison = new ItemStack(Material.NETHER_STAR);
+    ItemMeta PoisonMeta = Poison.getItemMeta();
+    PoisonMeta.setDisplayName(ChatColor.DARK_GREEN + "Poison");
+    Poison.setItemMeta(PoisonMeta);
+    
+    ItemStack Health = new ItemStack(Material.NETHER_STAR);
+    ItemMeta HealthMeta = Health.getItemMeta();
+    HealthMeta.setDisplayName(ChatColor.LIGHT_PURPLE + "Health");
+    Health.setItemMeta(HealthMeta);
+    
+    ItemStack NightVision = new ItemStack(Material.NETHER_STAR);
+    ItemMeta NightVisionMeta = NightVision.getItemMeta();
+    NightVisionMeta.setDisplayName(ChatColor.DARK_BLUE + "Night Vision");
+    NightVision.setItemMeta(NightVisionMeta);
+    
+    ItemStack Weakness = new ItemStack(Material.NETHER_STAR);
+    ItemMeta WeaknessMeta = Weakness.getItemMeta();
+    WeaknessMeta.setDisplayName(ChatColor.GRAY + "Weakness");
+    Weakness.setItemMeta(WeaknessMeta);
+    
+    ItemStack Strength = new ItemStack(Material.NETHER_STAR);
+    ItemMeta StrengthMeta = Strength.getItemMeta();
+    StrengthMeta.setDisplayName(ChatColor.GOLD + "Strength");
+    Strength.setItemMeta(StrengthMeta);
+    
+    ItemStack Slowness = new ItemStack(Material.NETHER_STAR);
+    ItemMeta SlownessMeta = Slowness.getItemMeta();
+    SlownessMeta.setDisplayName(ChatColor.GRAY + "Slowness");
+    Slowness.setItemMeta(SlownessMeta);
+    
+    ItemStack Leaping = new ItemStack(Material.NETHER_STAR);
+    ItemMeta LeapingMeta = Leaping.getItemMeta();
+    LeapingMeta.setDisplayName(ChatColor.BLUE + "Leaping");
+    Leaping.setItemMeta(LeapingMeta);
+    
+    ItemStack Harming = new ItemStack(Material.NETHER_STAR);
+    ItemMeta HarmingMeta = Harming.getItemMeta();
+    HarmingMeta.setDisplayName(ChatColor.DARK_PURPLE + "Harming");
+    Harming.setItemMeta(HarmingMeta);
+    
+    ItemStack WaterBreathing = new ItemStack(Material.NETHER_STAR);
+    ItemMeta WaterBreathingMeta = WaterBreathing.getItemMeta();
+    WaterBreathingMeta.setDisplayName(ChatColor.DARK_BLUE + "Water Breathing");
+    WaterBreathing.setItemMeta(WaterBreathingMeta);
+    
+    ItemStack Invisibility = new ItemStack(Material.NETHER_STAR);
+    ItemMeta InvisibilityMeta = Invisibility.getItemMeta();
+    InvisibilityMeta.setDisplayName(ChatColor.WHITE + "Invisibility");
+    Invisibility.setItemMeta(InvisibilityMeta);
+    
+    ItemStack Absorption = new ItemStack(Material.NETHER_STAR);
+    ItemMeta AbsorptionMeta = Absorption.getItemMeta();
+    AbsorptionMeta.setDisplayName(ChatColor.GOLD + "Absorption");
+    Absorption.setItemMeta(AbsorptionMeta);
+    
+    ItemStack Blindness = new ItemStack(Material.NETHER_STAR);
+    ItemMeta BlindnessMeta = Blindness.getItemMeta();
+    BlindnessMeta.setDisplayName(ChatColor.GRAY + "Blindness");
+    Blindness.setItemMeta(BlindnessMeta);
+    
+    ItemStack Confusion = new ItemStack(Material.NETHER_STAR);
+    ItemMeta ConfusionMeta = Confusion.getItemMeta();
+    ConfusionMeta.setDisplayName(ChatColor.GRAY + "Confusion");
+    Confusion.setItemMeta(ConfusionMeta);
+    
+    ItemStack FastDigging = new ItemStack(Material.NETHER_STAR);
+    ItemMeta FastDiggingMeta = FastDigging.getItemMeta();
+    FastDiggingMeta.setDisplayName(ChatColor.GOLD + "Fast Digging");
+    FastDigging.setItemMeta(FastDiggingMeta);
+    
+    ItemStack Saturation = new ItemStack(Material.NETHER_STAR);
+    ItemMeta SaturationMeta = Saturation.getItemMeta();
+    SaturationMeta.setDisplayName(ChatColor.GRAY + "Saturation");
+    Saturation.setItemMeta(SaturationMeta);
+    
+    ItemStack Hunger = new ItemStack(Material.NETHER_STAR);
+    ItemMeta HungerMeta = Hunger.getItemMeta();
+    HungerMeta.setDisplayName(ChatColor.GRAY + "Hunger");
+    Hunger.setItemMeta(HungerMeta);
+    
+    ItemStack SlowDigging = new ItemStack(Material.NETHER_STAR);
+    ItemMeta SlowDiggingMeta = SlowDigging.getItemMeta();
+    SlowDiggingMeta.setDisplayName(ChatColor.GRAY + "Slow Digging");
+    SlowDigging.setItemMeta(SlowDiggingMeta);
+    
+    ItemStack Wither = new ItemStack(Material.NETHER_STAR);
+    ItemMeta WitherMeta = Wither.getItemMeta();
+    WitherMeta.setDisplayName(ChatColor.DARK_PURPLE + "Wither");
+    Wither.setItemMeta(WitherMeta);
+    
+    ItemStack ClearAllEffects = new ItemStack(Material.BARRIER);
+    ItemMeta ClearAllEffectsMeta = ClearAllEffects.getItemMeta();
+    ClearAllEffectsMeta.setDisplayName(ChatColor.DARK_RED + "Clear All Effects");
+    ClearAllEffects.setItemMeta(ClearAllEffectsMeta);
+    
+    ItemStack ExittheGUI = new ItemStack(Material.BARRIER);
+    ItemMeta ExittheGUIMeta = ExittheGUI.getItemMeta();
+    ExittheGUIMeta.setDisplayName(ChatColor.DARK_RED + "Exit the GUI");
+    ExittheGUI.setItemMeta(ExittheGUIMeta);
+    
+    this.inv.setItem(0, Regeneration);
+    this.inv.setItem(2, Swiftness);
+    this.inv.setItem(4, FireResistance);
+    this.inv.setItem(6, Poison);
+    this.inv.setItem(8, Health);
+    this.inv.setItem(10, NightVision);
+    this.inv.setItem(12, Weakness);
+    this.inv.setItem(14, Strength);
+    this.inv.setItem(16, Slowness);
+    this.inv.setItem(18, Leaping);
+    this.inv.setItem(20, Harming);
+    this.inv.setItem(22, WaterBreathing);
+    this.inv.setItem(24, Invisibility);
+    this.inv.setItem(26, Absorption);
+    this.inv.setItem(28, Blindness);
+    this.inv.setItem(30, Confusion);
+    this.inv.setItem(32, FastDigging);
+    this.inv.setItem(34, Hunger);
+    this.inv.setItem(36, Saturation);
+    this.inv.setItem(38, SlowDigging);
+    this.inv.setItem(40, Wither);
+    this.inv.setItem(42, ClearAllEffects);
+    this.inv.setItem(44, ExittheGUI);
+    
+    Bukkit.getServer().getPluginManager().registerEvents(this, p);
+    
+  }
+  
+  public void show(Player p) {
+    p.openInventory(this.inv);
+    
+  }
+  
+  @EventHandler
+  public void onInventoryClick(InventoryClickEvent e) {
+    if (!e.getInventory().getName().equalsIgnoreCase(this.inv.getName())) {
+      return;
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta() == null) {
+      return;
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Regeneration")) {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.REGENERATION, 6000, 1));
+      e.getWhoClicked().closeInventory();
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Swiftness")) {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.SPEED, 6000, 1));
+      e.getWhoClicked().closeInventory();
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Fire Resistance"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.FIRE_RESISTANCE, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Poison"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.POISON, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Health"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.HEALTH_BOOST, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Night Vision"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.NIGHT_VISION, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Weakness"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WEAKNESS, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Strength"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.INCREASE_DAMAGE, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Slowness"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.SLOW, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Leaping"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.JUMP, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Harming"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.HARM, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Water Breathing"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WATER_BREATHING, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Invisibility"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.INVISIBILITY, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Absorption"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.ABSORPTION, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Blindness"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.BLINDNESS, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Confusion"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.CONFUSION, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Fast Digging"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.FAST_DIGGING, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Hunger"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.HUNGER, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Saturation"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.SATURATION, 6000, 1));
+      e.getWhoClicked().closeInventory();
+    }
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Slow Digging"))
+    {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.SLOW_DIGGING, 6000, 1));
+      e.getWhoClicked().closeInventory();
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Wither")) {
+      e.setCancelled(true);
+      e.getWhoClicked().addPotionEffect(new PotionEffect(PotionEffectType.WITHER, 6000, 1));
+      e.getWhoClicked().closeInventory();
+      
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Clear All Effects")) {
+      e.setCancelled(true);
+    for (PotionEffectType type : PotionEffectType.values()) {
+    e.getWhoClicked().removePotionEffect(type);
+    
+    }
+    
+    if (e.getCurrentItem().getItemMeta().getDisplayName().contains("Exit the GUI")) {
+      e.setCancelled(true);
+      e.getWhoClicked().closeInventory();
+    }
+    
+  }
+  
+}
